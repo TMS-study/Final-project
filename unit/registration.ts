@@ -26,38 +26,79 @@ export default class Registration {
 
     validateLoginField() {
         const userLogin = this.loginField.replace(/\s/g, '');
-        
-        if (userLogin.length > 15) {
-            return 'Error: Логин не должен превышать 15 символов';
+
+        const rules = [
+            {
+                condition: userLogin.length > 15,
+                message: 'Error: Логин не должен превышать 15 символов'
+            },
+            {
+                condition: !userLogin.match(/^[a-zA-Z]+$/),
+                message: 'Error: Логин может содержать только латинские буквы'
+            },
+            {
+                condition: userLogin.length <= 14 && userLogin.match(/^[a-zA-Z]+$/),
+                message: 'Success: Поле "Логин" обновлено'
+            }
+        ]
+        for (const rule of rules) {
+            if (rule.condition) {
+                return rule.message;
+            }
         }
-
-        if (!userLogin.match(/^[a-zA-Z]+$/)) {
-            return 'Error: Логин может содержать только латинские буквы';
-        }
-
-
-
-        return 'Success: Поле "Логин" обновлено';
     }
 
     validatePasswordField() {
         const userPassword = this.passwordField.replace(/\s/g, '');
-
-        if (userPassword.length < 6 || userPassword.length > 12) {
-            return 'Error: Пароль должен содержать не менее 6 и не более 12 символов';
+    
+        const hasLatinLetters = /[a-zA-Z]/.test(userPassword);
+        const hasNumbers = /[1-9]/.test(userPassword);
+        const hasSpecialChars = /[!?*]/.test(userPassword);
+    
+        const rules = [
+            {
+                condition: !hasLatinLetters || !hasNumbers || !hasSpecialChars,
+                message: 'Error: Пароль должен содержать латинские буквы, символы !?* и цифры от 1 до 9'
+            },
+            {
+                condition: userPassword.length >= 6 && userPassword.length <= 12 && hasLatinLetters && hasNumbers && hasSpecialChars,
+                message: 'Success: Поле "Пароль" обновлено'
+            },
+            {
+                condition: userPassword.length < 6 || userPassword.length > 12,
+                message: 'Error: Пароль должен содержать от 6 до 12 символов'
+            },
+        ];
+    
+        for (const rule of rules) {
+            if (rule.condition) {
+                return rule.message;
+            }
         }
-         if (!userPassword.match(/^[a-zA-Z]+$|^[!?*]+$|^[1-9]+$/)){
-            return 'Error: Пароль может содержать только латинские буквы, симовол "!?* и цифры от 1 до 9';
-        }
-        
+    
+  
+    
+    
+    
+    
+    
+    
 
-    return 'Success: Поле "Пароль" обновлено';  
+
     }
 
+
+
     isEmpty() {
-        if(!this.nameField || !this.loginField || !this.passwordField){
+        if (!this.nameField || !this.loginField || !this.passwordField) {
             return 'Error: Все поля обязательны для заполнения'
-        } ;
+        };
+    }
+
+    isValideDate() {
+        if (this.nameField && this.loginField && this.passwordField) {
+            return 'Success: все поля заполнены'
+        }
     }
 
 }
