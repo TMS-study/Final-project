@@ -1,4 +1,7 @@
 export default class Registration {
+    userReg() {
+        throw new Error("Method not implemented.");
+    }
     nameField: string;
     loginField: string;
     passwordField: any;
@@ -23,14 +26,16 @@ export default class Registration {
 
     validateLoginField() {
         const userLogin = this.loginField.replace(/\s/g, '');
+        
+        if (userLogin.length > 15) {
+            return 'Error: Логин не должен превышать 15 символов';
+        }
 
         if (!userLogin.match(/^[a-zA-Z]+$/)) {
             return 'Error: Логин может содержать только латинские буквы';
         }
 
-        if (userLogin.length > 15) {
-            return 'Error: Логин не должен превышать 15 символов';
-        }
+
 
         return 'Success: Поле "Логин" обновлено';
     }
@@ -38,23 +43,21 @@ export default class Registration {
     validatePasswordField() {
         const userPassword = this.passwordField.replace(/\s/g, '');
 
-        if (!userPassword.match(/^[a-zA-Z]+$/)) {
-            return 'Error: Пароль может содержать только латинские буквы';
+        if (userPassword.length < 6 || userPassword.length > 12) {
+            return 'Error: Пароль должен содержать не менее 6 и не более 12 символов';
         }
-
-        if (!userPassword.match(/^[!?*]+$/)) {
-            return 'Error: Пароль должен содержать хотя бы один из симовлов "!?*"';
+         if (!userPassword.match(/^[a-zA-Z]+$|^[!?*]+$|^[1-9]+$/)){
+            return 'Error: Пароль может содержать только латинские буквы, симовол "!?* и цифры от 1 до 9';
         }
+        
 
-        if (userPassword.length < 6) {
-            return 'Error: Пароль должен содержать не менее 6 символов';
-        }
+    return 'Success: Поле "Пароль" обновлено';  
+    }
 
-        if (userPassword.length > 12) {
-            return 'Error: Пароль не должен содержать более 12 символов';
-        }
-
-        return 'Success: Поле "Пароль" обновлено';
+    isEmpty() {
+        if(!this.nameField || !this.loginField || !this.passwordField){
+            return 'Error: Все поля обязательны для заполнения'
+        } ;
     }
 
 }
