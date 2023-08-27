@@ -1,5 +1,4 @@
 import { PlaywrightTestConfig, devices } from '@playwright/test';
-import BrowserFactory from './utils/browser.factory';
 
 const config: PlaywrightTestConfig = {
     timeout: 60 * 1000,
@@ -9,11 +8,10 @@ const config: PlaywrightTestConfig = {
         baseURL: process.env.BASE_URL,
         trace: 'on-first-retry',
         screenshot: 'only-on-failure',
+        viewport: {width:1800, height: 1024},
+        actionTimeout: 40*1000,
+        navigationTimeout: 30*1000
     },
-
-    projects: [
-        BrowserFactory.getBrowserObject()
-      ],
 
     workers: 1,
     fullyParallel: true,
