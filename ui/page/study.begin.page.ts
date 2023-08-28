@@ -21,7 +21,7 @@ export class StudyBegin extends BasePage {
         super(page);
         this.nameParent = page.locator('//input[@placeholder = "Имя и фамилия родителя"]');
         this.phoneParent = page.locator('//input[@placeholder = "Телефон родителя"]');
-        this.emailParent = page.locator('//form[contains(@class, "styled__Form-cNRRKJ ")]//input[@placeholder="Электронная почта"]');
+        this.emailParent = page.locator('//form[contains(@class, "styled__Form-cNRRKJ")]//input[@placeholder="Электронная почта"]');
         this.classStudent = page.getByText('//form[contains(@class, "styled__Form-cNRRKJ")]//div[contains(@class, "Select--single")]');
         this.methodTreatment = page.getByText('//form[contains(@class, "styled__Form-cNRRKJ")]//div[contains(@class, "Select--single")]');
         this.requestAgreement = page.locator('form').filter({ hasText: 'Класс ученикаУдобный способ общенияПринимаю условия соглашения и даю согласие на' }).locator('g rect')

@@ -21,3 +21,6 @@ test('test', async ({ page }) => {
   await page.goto('https://foxford.ru/home-school');
   await page.locator('form').filter({ hasText: 'Класс ученикаУдобный способ общенияПринимаю условия соглашения и даю согласие на' }).locator('g rect').click();
 });
+
+  // "test1": "npx playwright test tests/begin.study.spec.ts --headed",
+    // "test2": "npx playwright test tests/enroll.now.spec.ts --headed",

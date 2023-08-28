@@ -114,7 +114,7 @@ test.describe('', () => {
 
 
 
-    test('Submit an bid for admission', async () => {
+    test('Submit an bid for admission', async ({page}) => {
         name = await startLearn.inputNameParent('Иван Иванов');
         phone = await startLearn.inputPhoneParent('89211222323');
         email = await startLearn.inputEmailParent('test@mail.ru');
