@@ -18,17 +18,11 @@ test.describe('Check enroll now with and without login', () => {
         studyNow = new EnrollNow(page);
     });
 
-    test('Check login user', async ({ page }) => {
-        await newUser.clickEnter();
-        await newUser.goLogin();
-        await newUser.clickButtonFuther();
-        await page.reload();
-        await page.waitForURL('/dashboard/daily-plan');
-        expect(page.url()).toContain('/dashboard/daily-plan');
-    })
 
     test('check enroll', async ({ page }) => {
+        await newUser.clickEnter();
         await newUser.goLogin();
+        await newUser.openPage();
         await studyNow.clickEnrollNow();
 
         const isUserLoggedIn = await newUser.isLoggedIn();

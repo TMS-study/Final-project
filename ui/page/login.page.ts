@@ -22,16 +22,15 @@ export class LoginPage extends BasePage {
     async clickEnter() {
         await this.buttonEnter.click(); 
     }
-
+  
+    
     async goLogin() {
-        await this.buttonEmail.click();
+        await this.buttonEmail.click()
         await this.fieldEmail.fill("test123@mail.ru");
         await this.fieldPassword.fill("123123");
-    }
-
-    async clickButtonFuther() {
         await this.buttonFurther.click();
     }
+
 
     async isLoggedIn() {
         const dashboardElement = await this.dashboard.first();
