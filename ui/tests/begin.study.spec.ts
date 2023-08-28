@@ -19,25 +19,7 @@ test.describe('', () => {
         await open.openPage();
         startLearn = new StudyBegin(page);
     });
-    test('Select class student', async () => {
 
-        const isActive = 'is-open';
-        fieldClass = await startLearn.chooseClassStudent();
-
-        for (let i = 0; i < fieldClass.length; i++) {
-            const isEnabled = fieldClass[i];
-            await expect(isEnabled).toBeTruthy();
-
-            if (isEnabled) {
-                const buttons = await startLearn.classStudent.all();
-                const button = buttons[i];
-
-                await button.click();
-                await expect(await button.getAttribute('class')).toContain(isActive);
-            }
-        }
-
-    });
 
     test('Submit an bid for admission', async ({ page }) => {
         name = await startLearn.inputNameParent('Иван Иванов');
@@ -128,7 +110,25 @@ test.describe('', () => {
         expect(errorMessageVisible).toBeTruthy();
     });
 
+    test('Select class student', async () => {
 
+        const isActive = 'is-open';
+        fieldClass = await startLearn.chooseClassStudent();
+
+        for (let i = 0; i < fieldClass.length; i++) {
+            const isEnabled = fieldClass[i];
+            await expect(isEnabled).toBeTruthy();
+
+            if (isEnabled) {
+                const buttons = await startLearn.classStudent.all();
+                const button = buttons[i];
+
+                await button.click();
+                await expect(await button.getAttribute('class')).toContain(isActive);
+            }
+        }
+
+    });
 
     test('Selecet Method Treatment', async () => {
         const isActive = 'is-open';

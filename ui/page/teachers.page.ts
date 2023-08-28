@@ -16,12 +16,12 @@ export class Teachers extends BasePage {
     }
 
     async isTeacherCard1() {
-        await this.teacherCard1.isVisible();
+        await this.teacherCard1.nth(0).isVisible();
         return this.teacherCard1;
     }
 
     async isTeacherCard2() {
-        await this.teacherCard2.isVisible();
+        await this.teacherCard1.nth(1).isVisible();
         return this.teacherCard2;
     }
 
