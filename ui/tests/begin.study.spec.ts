@@ -169,9 +169,5 @@ test.describe('', () => {
         const newPage2 = await page.waitForEvent('popup');
         expect(newPage2.url()).toContain('legal/policy');
 
-    });
-
-
-
-    
+    }); 
 })
