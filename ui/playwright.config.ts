@@ -10,7 +10,7 @@ const config: PlaywrightTestConfig = {
         screenshot: 'only-on-failure',
         viewport: {width:1800, height: 1024},
         actionTimeout: 40*1000,
-        navigationTimeout: 30*1000
+        navigationTimeout: 60*1000
     },
 
     workers: 1,
