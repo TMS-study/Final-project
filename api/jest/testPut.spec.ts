@@ -1,4 +1,3 @@
-import superagent, { SuperAgent } from "superagent";
 import { HttpClient } from "../httpClient";
 
 describe('Check Put method API', () => {

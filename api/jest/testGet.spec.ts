@@ -1,4 +1,4 @@
-import superagent, { SuperAgent } from "superagent";
+
 import { HttpClient } from "../httpClient";
 
 describe('Check Get method API', () => {
@@ -12,7 +12,6 @@ describe('Check Get method API', () => {
         const numId100 = response100.body.find((num: { id: number}) => num.id === 100);
         expect(numId1).toBeDefined();
         expect(numId100).toBeDefined();
-        
     })
 
     it('check ID 101 not exist', async () => {

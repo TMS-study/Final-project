@@ -1,4 +1,3 @@
-import superagent, { SuperAgent, post } from "superagent";
 import { HttpClient } from "../httpClient";
 
 describe('Check Post method API', () => {
