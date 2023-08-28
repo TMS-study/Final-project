@@ -14,13 +14,13 @@ jobs:
         with:
           node-version: 18
       - name: Install dependencies
-        working-directory: final/ui  # Указываем рабочую директорию
+        working-directory: final/ui  
         run: npm ci
       - name: Install Playwright Browsers
-        working-directory: final/ui  # Указываем рабочую директорию
+        working-directory: final/ui  
         run: npx playwright install --with-deps
       - name: Run Playwright tests
-        working-directory: final/ui  # Указываем рабочую директорию
+        working-directory: final/ui  
         run: npx playwright test
       - uses: actions/upload-artifact@v3
         if: always()
@@ -28,7 +28,7 @@ jobs:
           name: playwright-report
           path: final/ui/playwright-report/
           retention-days: 30
-В каждом шаге я добавил параметр working-directory, который указывает GitHub Actions, в какой директории выполнять команды. Таким образом, все команды будут выполняться внутри директории final/ui, где находится ваш package.json и другие файлы проекта.
+
 
 
 
