@@ -1,9 +1,13 @@
  name: Playwright Tests
 on:
   push:
-    branches: [main, master]
+    branches:
+      - main
+      - master
   pull_request:
-    branches: [main, master]
+    branches:
+      - main
+      - master
 jobs:
   test:
     timeout-minutes: 60
@@ -17,12 +21,17 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install dependencies and run Playwright tests
-        run: |
-          cd final/ui
-          npm ci
-          npx playwright install --with-deps
-          npx playwright test
+      - name: Install dependencies
+        working-directory: final/ui
+        run: npm ci
+
+      - name: Install Playwright Browsers
+        working-directory: final/ui
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright tests
+        working-directory: final/ui
+        run: npx playwright test
 
       - name: Upload Playwright report
         uses: actions/upload-artifact@v2
@@ -31,7 +40,6 @@ jobs:
           name: playwright-report
           path: final/ui/playwright-report/
           retention-days: 30
-
 
 
 
