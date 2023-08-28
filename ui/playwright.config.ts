@@ -1,4 +1,4 @@
-import { PlaywrightTestConfig, devices } from '@playwright/test';
+import { PlaywrightTestConfig } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
     timeout: 60 * 1000,
@@ -9,7 +9,7 @@ const config: PlaywrightTestConfig = {
         trace: 'on-first-retry',
         screenshot: 'only-on-failure',
         viewport: {width:1800, height: 1024},
-        actionTimeout: 40*1000,
+        actionTimeout: 60*1000,
         navigationTimeout: 60*1000
     },
 
