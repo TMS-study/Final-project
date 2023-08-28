@@ -13,8 +13,6 @@ test.describe('', () => {
     let check: any;
     let fieldClass;
     let fieldTerms;
-    
-
 
     test.beforeEach(async ({ page }) => {
         open = new BasePage(page);
@@ -114,7 +112,7 @@ test.describe('', () => {
 
 
 
-    test('Submit an bid for admission', async ({page}) => {
+    test('Submit an bid for admission', async ({ page }) => {
         name = await startLearn.inputNameParent('Иван Иванов');
         phone = await startLearn.inputPhoneParent('89211222323');
         email = await startLearn.inputEmailParent('test@mail.ru');
@@ -123,7 +121,7 @@ test.describe('', () => {
         for (let i = 0; i < fieldClass.length; i++) {
             const isEnabled = fieldClass[i];
             if (isEnabled) {
-                const button = await startLearn.classStudent.first(); 
+                const button = await startLearn.classStudent.first();
                 await button.click();
             }
         }
@@ -137,47 +135,41 @@ test.describe('', () => {
             }
         }
 
-            if (name && phone && email && fieldClass && fieldTerms && check) {
-                let bid: any = await startLearn.clickButtonBid();
-                let happy = await startLearn.isHappyState();
-                expect(bid).toBe(happy);
-            }
-            else if (name && phone && email && fieldClass && check) {
-                let bid: any = await startLearn.clickButtonBid();
-                let happy = await startLearn.isHappyState();
-                expect(bid).toBe(happy);
-            }
-           else if (name && phone && email && fieldClass && fieldTerms) {
-                let bid: any = await startLearn.clickButtonBid();
-                let happy = await startLearn.isHappyState();
-                expect(bid).not.toBe(happy);
-            }
-            else if(name && phone && email  && fieldTerms && check) {
-                let bid: any = await startLearn.clickButtonBid();
-                let happy = await startLearn.isHappyState();
-                expect(bid).not.toBe(happy);
-            }
-            else if(name && phone && fieldClass && fieldTerms && check) {
-                let bid: any = await startLearn.clickButtonBid();
-                let happy = await startLearn.isHappyState();
-                expect(bid).not.toBe(happy);
-            }
-            else if (name  && email && fieldClass && fieldTerms && check) {
-                let bid: any = await startLearn.clickButtonBid();
-                let happy = await startLearn.isHappyState();
-                expect(bid).not.toBe(happy);
-            }
-            else if (phone && email && fieldClass && fieldTerms && check) {
-                let bid: any = await startLearn.clickButtonBid();
-                let happy = await startLearn.isHappyState();
-                expect(bid).not.toBe(happy);
-            }
+        if (name && phone && email && fieldClass && fieldTerms && check) {
+            let bid: any = await startLearn.clickButtonBid();
+            let happy = await startLearn.isHappyState();
+            expect(bid).toBe(happy);
+        }
+        else if (name && phone && email && fieldClass && check) {
+            let bid: any = await startLearn.clickButtonBid();
+            let happy = await startLearn.isHappyState();
+            expect(bid).toBe(happy);
+        }
+        else if (name && phone && email && fieldClass && fieldTerms) {
+            let bid: any = await startLearn.clickButtonBid();
+            let happy = await startLearn.isHappyState();
+            expect(bid).not.toBe(happy);
+        }
+        else if (name && phone && email && fieldTerms && check) {
+            let bid: any = await startLearn.clickButtonBid();
+            let happy = await startLearn.isHappyState();
+            expect(bid).not.toBe(happy);
+        }
+        else if (name && phone && fieldClass && fieldTerms && check) {
+            let bid: any = await startLearn.clickButtonBid();
+            let happy = await startLearn.isHappyState();
+            expect(bid).not.toBe(happy);
+        }
+        else if (name && email && fieldClass && fieldTerms && check) {
+            let bid: any = await startLearn.clickButtonBid();
+            let happy = await startLearn.isHappyState();
+            expect(bid).not.toBe(happy);
+        }
+        else if (phone && email && fieldClass && fieldTerms && check) {
+            let bid: any = await startLearn.clickButtonBid();
+            let happy = await startLearn.isHappyState();
+            expect(bid).not.toBe(happy);
+        }
 
-        });
-
-
-    
-
-    
-
+    });
 })

@@ -3,6 +3,7 @@ import { test, expect } from "@playwright/test";
 import { Teachers } from "../page/teachers.page";
 
 test.describe('', () => {
+    
     let teach: Teachers;
     let open: BasePage;
     let moveCard1;
@@ -37,9 +38,5 @@ test.describe('', () => {
         moveCard2 = await teach.isTeacherCard2();
         expect(await moveCard2.getAttribute('aria-hidden')).toContain(isActive);
     });
-
-
-
-
 });
 

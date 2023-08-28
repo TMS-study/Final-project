@@ -48,7 +48,6 @@ export class StudyBegin extends BasePage {
         } else if ((!phone.startsWith('7') && !phone.startsWith('8')) && phone.length > 20) {
             phone = phone.slice(0, 20);
         }
-
         return phone;
     }
 
@@ -104,5 +103,4 @@ export class StudyBegin extends BasePage {
         this.happyState.isVisible()
         return this.happyState;
     }
-
 }

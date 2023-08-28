@@ -7,7 +7,6 @@ export class Teachers extends BasePage {
     private readonly slider1: Locator;
     private readonly slider2: Locator;
 
-
     constructor(page: Page) {
         super(page);
         this.teacherCard1 = page.locator('//div[contains(@class, "styled__Root-hmLjco")]//div[@data-index="0"]');

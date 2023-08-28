@@ -6,6 +6,7 @@ import BasePage from "../page/base.page";
 
 
 test.describe('Check enroll now with and without login', () => {
+
     let newUser: any;
     let open: any;
     let studyNow: any;
@@ -37,6 +38,5 @@ test.describe('Check enroll now with and without login', () => {
         } else {
             expect(page.url()).toContain('/user/login');
         }
-
     })
 })

@@ -20,8 +20,7 @@ export class LoginPage extends BasePage {
     }
 
     async clickEnter() {
-        await this.buttonEnter.click();
-        
+        await this.buttonEnter.click(); 
     }
 
     async goLogin() {
@@ -38,6 +37,4 @@ export class LoginPage extends BasePage {
         const dashboardElement = await this.dashboard.first();
         return await dashboardElement.isVisible();
     }
-
-
 }
