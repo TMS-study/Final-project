@@ -19,3 +19,5 @@ export class EnrollNow extends BasePage {
         await this.contactParent.isVisible();
     }
 }
+
+// Блок самостоятельного поступления
