@@ -66,7 +66,7 @@ export class StudyBegin extends BasePage {
         const isEnabledArray = await Promise.all(buttons.map(async (button) => await button.isEnabled()));
         return isEnabledArray;
     }
-    
+
     async chooseMethodTreatment() {
         const but = this.methodTreatment.last();
         const buttons = await but.all();
@@ -81,26 +81,26 @@ export class StudyBegin extends BasePage {
 
 
     async clickButtonBid() {
-        this.buttonBid.click();
+        await this.buttonBid.click();
         return this.buttonBid;
     };
 
 
     async clickLinkTermsAgreementt() {
-        this.linkTermsAgreementt.click();
+        await this.linkTermsAgreementt.click();
     };
 
 
     async clickLinkPersonalData() {
-        this.linkPersonalData.click();
+        await this.linkPersonalData.click();
     };
 
     async clickLinkPrivacyPolicies() {
-        this.linkPrivacyPolicies.click();
+        await this.linkPrivacyPolicies.click();
     };
 
     async isHappyState() {
-        this.happyState.isVisible()
+        await this.happyState.isVisible()
         return this.happyState;
     }
 }
