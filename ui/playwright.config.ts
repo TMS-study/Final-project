@@ -18,16 +18,18 @@ const config: PlaywrightTestConfig = {
         {
             name: 'chrome',
             use: {
+                headless: true,
                 ...devices['Desktop Chrome'],
                 browserName: 'chromium',
             },
+            
         },
 
 
-        {
-            name: 'mobile',
-            use:{ ...devices['Galaxy S8']}
-        },
+        // {
+        //     name: 'mobile',
+        //     use:{ ...devices['Galaxy S8']}
+        // },
     ],
 
     workers: 1,

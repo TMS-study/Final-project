@@ -36,7 +36,7 @@ test.describe('', () => {
         isActive = 'false';
         clickSlider2 = await teach.clickSlider2();
         moveCard2 = await teach.isTeacherCard2();
-        expect(await moveCard2.nth(0).getAttribute('aria-hidden')).toContain(isActive);
+        expect(await moveCard2.getAttribute('aria-hidden')).toContain(isActive);
     });
 });
 
