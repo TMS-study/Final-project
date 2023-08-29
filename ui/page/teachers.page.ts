@@ -27,8 +27,8 @@ export class Teachers extends BasePage {
 
 
     async clickSlider2() {
-      
-        await this.slider2.click();
+       await this.slider2.click();
+       return this.slider2;
     }
 }
 
