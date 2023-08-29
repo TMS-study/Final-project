@@ -33,10 +33,10 @@ test.describe('', () => {
     });
 
     test('Scroll teacher with the mouse slider', async () => {
-        isActive = 'false';
+        isActive = 'true';
         clickSlider2 = await teach.clickSlider2();
-        moveCard2 = await teach.isTeacherCard2();
-        expect(await moveCard2.getAttribute('aria-hidden')).toContain(isActive);
+        moveCard1 = await teach.isTeacherCard2();
+        expect(await moveCard1.nth(1).getAttribute('aria-hidden')).toContain(isActive);
     });
 });
 
