@@ -11,7 +11,7 @@ export class Teachers extends BasePage {
         super(page);
         this.teacherCard1 = page.locator('//div[@data-index="0"]');
         this.teacherCard2 = page.locator('//div[@data-index="1"]');
-        this.slider2 = page.locator('//div[contains(@class, "styled__Root-hmLjco")]//button[contains(@class, "styled__Root-eEBHAS")][2]');
+        this.slider2 = page.locator('.styled__ButtonWrapper-dkqOfX > button:nth-child(2)');
     }
 
     async isTeacherCard1() {
@@ -27,9 +27,10 @@ export class Teachers extends BasePage {
 
 
     async clickSlider2() {
-       await this.slider2.click();
+       await this.slider2.first().click();
        return this.slider2;
     }
 }
 
-// Блок учителей
+// Блок учителейimport { test, expect } from '@playwright/test';
+
