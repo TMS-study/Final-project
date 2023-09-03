@@ -44,9 +44,10 @@ export class HttpClient {
     static async put(path: string, setDate: any, sendDate: string | object): Promise<any> {
         let response: unknown;
         try {
-            response = await superagent.put(`${HttpClient.url}/${path}`).set(setDate).send(sendDate)
-            
-            getStatus(response);
+            response = await superagent.put(`${HttpClient.url}/${path}`)
+            .set(setDate)
+            .send(sendDate)
+        getStatus(response);
 
         }
         catch (err: any) {
@@ -60,9 +61,10 @@ export class HttpClient {
     static async putch(path: string, setDate: any, sendDate: string | object): Promise<any> {
         let response: unknown;
         try {
-            response = await superagent.post(`${HttpClient.url}/${path}`)
-            
-            getStatus(response);
+            response = await superagent.put(`${HttpClient.url}/${path}`)
+            .set(setDate)
+            .send(sendDate)
+        getStatus(response);
 
         }
         catch (err: any) {

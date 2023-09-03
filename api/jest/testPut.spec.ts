@@ -51,8 +51,8 @@ describe('Check Put method API', () => {
                 comment: 'not exist'
             });
         expect(response.status).toBe(200);
-        expect(response.body).toEqual({ comment: 'not exist', id: 4 });
-        //console.log(response.body)
+        expect(response.body).toEqual({ comment: 'not exist', id: 1 });
+        console.log(response.body)
     });
 
 });

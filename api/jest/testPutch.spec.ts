@@ -28,10 +28,11 @@ describe('Check Patch method API', () =>{
     it('update body and title', async() => {
         const updatedData = {
             title: 'New Title',
+            "id": 67,
             body: 'New Body'
         };
         const response = await HttpClient.putch('posts/67', {'Content-Type': 'application/json'} ,updatedData);
         expect(response.status).toBe(200);
-        expect(response.body).toBe(updatedData);
+        expect(response.body).toEqual(updatedData);
     });
 });
