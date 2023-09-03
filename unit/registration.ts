@@ -75,19 +75,7 @@ export default class Registration {
                 return rule.message;
             }
         }
-    
-  
-    
-    
-    
-    
-    
-    
-
-
     }
-
-
 
     isEmpty() {
         if (!this.nameField || !this.loginField || !this.passwordField) {

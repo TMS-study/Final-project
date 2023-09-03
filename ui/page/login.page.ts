@@ -20,16 +20,16 @@ export class LoginPage extends BasePage {
     }
 
     async clickEnter() {
-        await this.buttonEnter.click(); 
+        await this.buttonEnter.click();
     }
-  
-    
+
+
     async goLogin() {
         await this.buttonEmail.click()
         await this.fieldEmail.fill("test123@mail.ru");
         await this.fieldPassword.fill("123123");
-        await this.buttonFurther.click();
-        return true
+        const but = await this.buttonFurther.click();
+        return but;
     }
 
 

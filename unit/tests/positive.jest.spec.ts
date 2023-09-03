@@ -115,7 +115,7 @@ describe('Check positive case in registration form',  function () {
         console.log(result)
     })
 
-    it('14 - field userPassword with * between character', function() {
+    it('15 - field userPassword with * between character', function() {
         registrationForm = new Registration('', '', 'pas*ss!81');
         result = registrationForm.validatePasswordField();
         expect(registrationForm).toBeTruthy();
