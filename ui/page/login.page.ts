@@ -22,18 +22,13 @@ export class LoginPage extends BasePage {
     async clickEnter() {
         await this.buttonEnter.click(); 
     }
-  
     
     async goLogin() {
         await this.buttonEmail.click()
-        await this.fieldEmail.fill("test123@mail.ru");
-        await this.fieldPassword.fill("123123");
+        await this.fieldEmail.fill("zuzikevich1990@gmail.com");
+        await this.fieldPassword.fill("09Tidafu1990");
         await this.buttonFurther.click();
+        await this.page.waitForURL('/dashboard/daily-plan');
     }
 
-
-    async isLoggedIn() {
-        const dashboardElement = await this.dashboard.first();
-        return await dashboardElement.isVisible();
-    }
 }
