@@ -1,4 +1,3 @@
-
 import BasePage from "./base.page";
 import { Locator, Page } from "@playwright/test";
 
@@ -7,7 +6,6 @@ export class StudyBegin extends BasePage {
     private readonly nameParent: Locator;
     private readonly phoneParent: Locator;
     private readonly emailParent: Locator;
-    //public readonly classStudent: Locator;
     private readonly requestAgreement: Locator;
     private readonly buttonBid: Locator;
     private readonly linkTermsAgreementt: Locator;
@@ -73,6 +71,7 @@ export class StudyBegin extends BasePage {
             await this.selectArrow.first().click();
             await this.page.getByLabel(className).click();
         }
+        return true
     }
 
     async chooseVisible() {
@@ -109,13 +108,11 @@ export class StudyBegin extends BasePage {
 
     async isHappyState() {
         const happyState = await this.happyState.isVisible();
-        //console.log('isHappyState:', happyState); // Добавьте этот вывод
         return happyState;
     }
 
     async clickButtonBid() {
-        await this.buttonBid.click();
-        //console.log('clickButtonBid'); // Добавьте этот вывод
-        return this.buttonBid;
+        const but = await this.buttonBid.click();
+        return but
     };
 }

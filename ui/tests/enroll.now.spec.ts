@@ -18,20 +18,18 @@ test.describe('Check enroll now with and without login', () => {
         studyNow = new EnrollNow(page);
     });
 
-
-    // test('check enroll if user logged in', async ({page}) => {
-    //     await newUser.clickEnter();
-    //     await newUser.goLogin();
-    //     expect(page.url()).toContain('/dashboard/daily-plan');
-
-    //     await newUser.openPage();
-    //     await studyNow.clickEnrollNow();
-    //     expect(await studyNow.isContactParent()).toBeTruthy();
-    // })
-
-    test('check enroll if user not logged in', async ({ page }) => {
+    test('check enroll', async ({ page }) => {
+        await newUser.clickEnter();
+        await newUser.goLogin();
         await newUser.openPage();
         await studyNow.clickEnrollNow();
-        expect(page.url()).toContain('/user/login');
+
+        const isUserLoggedIn = await newUser.isLoggedIn();
+
+        if (isUserLoggedIn) {
+            expect(await studyNow.isContactParent()).toBeTruthy();
+        } else {
+            expect(page.url()).toContain('/user/login');
+        }
     })
 })

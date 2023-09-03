@@ -20,4 +20,5 @@ export class EnrollNow extends BasePage {
     }
 }
 
+
 // Блок самостоятельного поступления

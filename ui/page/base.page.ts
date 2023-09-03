@@ -10,8 +10,6 @@ export default class BasePage {
     }
 
     async openPage() {
-       
         await this.page.goto(`${'https://foxford.ru/home-school'}`);
     }
-
 }
