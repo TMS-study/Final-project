@@ -29,6 +29,7 @@ export class LoginPage extends BasePage {
         await this.fieldEmail.fill("test123@mail.ru");
         await this.fieldPassword.fill("123123");
         await this.buttonFurther.click();
+        return true
     }
 
 

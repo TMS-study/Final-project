@@ -12,11 +12,13 @@ export class EnrollNow extends BasePage {
     }
 
     async clickEnrollNow() {
-        await this.enrollNow.click();
+      const butClick = await this.enrollNow.click();
+      return butClick;
     }
 
     async isContactParent() {
-        await this.contactParent.isVisible();
+      const contactParent = await this.contactParent.isVisible();
+      return contactParent;
     }
 }
 
