@@ -23,13 +23,7 @@ const config: PlaywrightTestConfig = {
                 browserName: 'chromium',
             },
             
-        },
-
-
-        // {
-        //     name: 'mobile',
-        //     use:{ ...devices['Galaxy S8']}
-        // },
+        }
     ],
 
     workers: 1,
